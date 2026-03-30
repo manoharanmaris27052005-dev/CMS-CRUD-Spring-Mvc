@@ -4,105 +4,120 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Course Management</title>
+<title>Course Dashboard</title>
 
 <style>
 
+/* Base */
 body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
-    background: #121212;
-    color: #e4e4e4;
+    background: #0f172a;
+    color: #e2e8f0;
 }
 
 /* Navbar */
 .navbar {
-    background: #1f1f1f;
-    padding: 15px;
+    background: #020617;
+    padding: 18px;
     text-align: center;
     font-size: 22px;
     font-weight: bold;
-    color: #00d4ff;
-    box-shadow: 0px 2px 10px rgba(0,0,0,0.5);
+    color: #38bdf8;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
 
 /* Container */
 .container {
-    width: 85%;
+    width: 90%;
     margin: auto;
     margin-top: 30px;
 }
 
 /* Card */
 .card {
-    background: #1e1e1e;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 5px 15px rgba(0,0,0,0.5);
+    background: #020617;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.6);
 }
 
-/* Buttons */
-.btn {
-    padding: 8px 16px;
-    border-radius: 6px;
+/* Add Button */
+.add-btn {
+    background: linear-gradient(45deg, #3b82f6, #06b6d4);
+    padding: 10px 18px;
+    border-radius: 8px;
     text-decoration: none;
     color: white;
-    font-size: 14px;
+    font-weight: bold;
     transition: 0.3s;
 }
 
-.add {
-    background: #007bff;
-}
-
-.add:hover {
-    background: #0056b3;
-}
-
-.edit {
-    background: #28a745;
-}
-
-.edit:hover {
-    background: #1e7e34;
-}
-
-.delete {
-    background: #dc3545;
-}
-
-.delete:hover {
-    background: #a71d2a;
+.add-btn:hover {
+    transform: scale(1.05);
 }
 
 /* Table */
 table {
     width: 100%;
-    margin-top: 20px;
+    margin-top: 25px;
     border-collapse: collapse;
 }
 
 th {
-    background: #007bff;
-    color: white;
-    padding: 12px;
+    background: #1e293b;
+    padding: 14px;
+    color: #38bdf8;
 }
 
 td {
-    padding: 12px;
+    padding: 14px;
     text-align: center;
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid #1e293b;
 }
 
+/* Row Hover */
 tr:hover {
-    background: #2a2a2a;
+    background: #1e293b;
+}
+
+/* Buttons */
+.btn {
+    padding: 6px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 13px;
+    margin: 2px;
+    display: inline-block;
+}
+
+/* Edit */
+.edit {
+    background: #22c55e;
+    color: white;
+}
+
+/* Delete */
+.delete {
+    background: #ef4444;
+    color: white;
+}
+
+/* Hover */
+.edit:hover {
+    background: #16a34a;
+}
+
+.delete:hover {
+    background: #dc2626;
 }
 
 /* Empty Message */
 .empty {
     text-align: center;
-    padding: 30px;
-    color: #aaa;
+    padding: 40px;
+    color: #94a3b8;
     font-size: 18px;
 }
 
@@ -113,19 +128,19 @@ tr:hover {
 <body>
 
 <div class="navbar">
-    🌙 Course Management System
+    🌙 Course Management Dashboard
 </div>
 
 <div class="container">
 
 <div class="card">
 
-<a href="add" class="btn add">+ Add Course</a>
+<a href="add" class="add-btn">➕ Add Course</a>
 
 <c:if test="${empty courses}">
     <div class="empty">
         No courses available 😕 <br><br>
-        Add a course to get started
+        Start by adding a new course
     </div>
 </c:if>
 
@@ -147,7 +162,7 @@ tr:hover {
     <td>
         <a href="edit?id=${c.id}" class="btn edit">Edit</a>
         <a href="delete?id=${c.id}" class="btn delete"
-           onclick="return confirm('Are you sure to delete?')">Delete</a>
+           onclick="return confirm('Delete this course?')">Delete</a>
     </td>
 </tr>
 </c:forEach>
