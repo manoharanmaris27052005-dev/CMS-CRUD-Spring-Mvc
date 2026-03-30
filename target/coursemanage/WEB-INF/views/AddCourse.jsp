@@ -1,25 +1,55 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Add Course</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
+<meta charset="UTF-8">
+<title>Add Course</title>
+
+<style>
+body {
+    font-family: Arial;
+    background: #eef2f7;
+}
+
+.form-box {
+    width: 400px;
+    margin: auto;
+    margin-top: 80px;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #ccc;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+</style>
+
 </head>
 <body>
-<div class="container">
-    <h1>Add a New Course</h1>
 
-    <form action="${pageContext.request.contextPath}/save" method="post">
-        <label for="name">Course Name:</label>
-        <input type="text" id="name" name="name" placeholder="Enter course name" required>
+<div class="form-box">
+<h2>Add Course</h2>
 
-        <label for="instructor">Instructor:</label>
-        <input type="text" id="instructor" name="instructor" placeholder="Enter duration" required>
+<form action="save" method="post">
+    ID: <input type="text" name="id">
+    Course Name: <input type="text" name="name">
+    Instructor: <input type="text" name="instructor">
+    <button type="submit">Save</button>
+</form>
 
-        <button type="submit">Save Course</button>
-    </form>
-
-    <p><a href="${pageContext.request.contextPath}/">Back to Course List</a></p>
 </div>
+
 </body>
 </html>
-
